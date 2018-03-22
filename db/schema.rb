@@ -43,6 +43,10 @@ ActiveRecord::Schema.define(version: 20180322225705) do
     t.integer "ibu"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
+    t.string "brewery"
+    t.string "nationality"
+    t.string "available_in"
+    t.string "description"
   end
 
 end
