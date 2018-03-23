@@ -4,11 +4,16 @@
   </div>
 <% else %>
   <% @beers.each do |beer| %>
-    <ul>
-      <li><%= beer.name %></li>
-      <li>Estilo: <%= beer.style %></li>
-      <li>ABV: <%= beer.abv %>%</li>
-      <li>IBU: <%= beer.ibu %></li>
-    </ul>
+    <div class="card" style="width: 18rem;">
+      <div class="card-header">
+        <%= beer.name %>
+      </div>
+      <ul class="list-group list-group-flush">
+        <li class="list-group-item">Estilo: <%= beer.style %></li>
+        <li class="list-group-item">ABV: <%= beer.abv %>%</li>
+        <li class="list-group-item">IBU: <%= beer.ibu %></li>
+      </ul>
+    </div>
+    <br>
   <% end %>
 <% end %>
