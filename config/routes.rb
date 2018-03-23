@@ -3,4 +3,7 @@ Rails.application.routes.draw do
   resources :beers, only:[:index] do
     get 'search', on: :collection
   end
+
+  resources :bar, only:[:show]
+
 end

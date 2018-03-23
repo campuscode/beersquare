@@ -1,0 +1,22 @@
+<h3><%= @bar.name %></h3>
+<ul>
+  <li><%= @bar.neighborhood %></li>
+  <li><%= @bar.city %></li>
+  <li><%= @bar.state %></li>
+  <li><%= @bar.zip_code %></li>
+  <li><%= @bar.phone %></li>
+  <li><%= @bar.trading_hour %></li>
+  <li><%= @bar.payment %></li>
+  <li><%= @bar.rank %></li>
+  <li><%= @bar.services %></li>
+</ul>
+<h3> 'Cervejas:' </h3>
+<ul>
+  <% if @bar.beers.empty? %>
+    <%= 'Este bar não tem cerveja disponível no momento' %>
+    <% else %>
+      <% @bar.beers.each do |beer| %>
+        <li><%= beer.name %></li>
+    <% end %>
+  <% end %>
+</ul>
