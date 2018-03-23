@@ -1,5 +1,12 @@
+<div class="">
+  <%= flash[:notice] %>
+</div>
+
 <% @beers.each do |beer| %>
-<ul>
-  <li><%= beer.name %>, Estilo: <%= beer.style %>, ABV: <%= beer.abv %>%, IBU: <%= beer.ibu %></li>
-</ul>
+  <ul>
+    <li><%= beer.name %></li>
+    <li>Estilo: <%= beer.style %></li>
+    <li>ABV: <%= beer.abv %>%</li>
+    <li>IBU: <%= beer.ibu %></li>
+  </ul>
 <% end %>

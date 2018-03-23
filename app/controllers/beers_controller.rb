@@ -1,5 +1,9 @@
 class BeersController < ApplicationController
   def search
-    @beers = Beer.where(name: params[:q])
+    @search = params[:q]
+    @beers = Beer.where("name LIKE ?", "%#{@search}%")
+    if @beers.empty?
+      flash[:notice] = "Cerveja não encontrada"
+    end
   end
 end
