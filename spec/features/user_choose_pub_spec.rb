@@ -2,7 +2,7 @@ require 'rails_helper'
 
 feature 'user choose bar' do
   scenario 'successfully' do
-    Beer.create(
+    cerveja1 = Beer.create(
       name: 'Erdinger Weissbier',
       style: 'Weiss',
       abv: '5,3%',

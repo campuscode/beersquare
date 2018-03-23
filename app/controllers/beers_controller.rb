@@ -1,5 +1,6 @@
 class BeersController < ApplicationController
   def search
-    @beers = Beer.where(name: params[:q])
+    @search = params[:q]
+    @beers = Beer.where('name LIKE ?', "%#{@search}%")
   end
 end
