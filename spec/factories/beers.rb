@@ -8,6 +8,5 @@ FactoryBot.define do
     nationality 'American'
     available_in 'can, bottle'
     description 'Descrição da cerveja maravilhosa'
-
   end
 end

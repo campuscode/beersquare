@@ -18,6 +18,8 @@ AllCops:
     - 'spec/spec_helper.rb'
   UseCache: false
   TargetRailsVersion: 5.1
-  TargetRubyVersion: 2.5
+  TargetRubyVersion: 2.3
 Metrics/BlockLength:
   ExcludedMethods: ['describe', 'context', 'feature', 'scenario', 'let']
+Style/FrozenStringLiteralComment:
+  Enabled: false
