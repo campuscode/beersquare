@@ -2,7 +2,12 @@ require 'rails_helper'
 
 feature 'User search beer by name' do
   scenario 'successfully' do
-    create(:beer)
+    Beer.create(
+      name: 'KBS 2016', style: 'Imperial Russial Stout', abv: 11.9, ibu: 70
+    )
+    Beer.create(
+      name: 'KBS 2018', style: 'Imperial Russial Stout', abv: 11.9, ibu: 70
+    )
 
     visit root_path
     fill_in 'Search', with: 'KBS 2016'

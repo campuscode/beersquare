@@ -6,7 +6,6 @@ FactoryBot.define do
     abv 11.9
     ibu 70
     nationality 'American'
-    available_in 'can, bottle'
     description 'Descrição da cerveja maravilhosa'
   end
 end
