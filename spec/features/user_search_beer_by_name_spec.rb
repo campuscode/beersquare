@@ -10,7 +10,7 @@ feature 'User search beer by name' do
     )
 
     visit root_path
-    fill_in 'Search', with: 'KBS 2016'
+    fill_in 'q', with: 'KBS 2016'
     click_on 'Buscar'
 
     expect(page).to have_css('li', text: 'KBS 2016')
@@ -24,7 +24,7 @@ feature 'User search beer by name' do
     beer2 = create(:beer, name: 'KBS 2018')
 
     visit root_path
-    fill_in 'Search', with: 'KBS'
+    fill_in 'q', with: 'KBS'
     click_on 'Buscar'
 
     expect(page).to have_css('li', text: beer1.name)
@@ -38,7 +38,7 @@ feature 'User search beer by name' do
     create(:beer)
 
     visit root_path
-    fill_in 'Search', with: 'Bla'
+    fill_in 'q', with: 'Bla'
     click_on 'Buscar'
 
     expect(page).to have_content('Cerveja não encontrada')
