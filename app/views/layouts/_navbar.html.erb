@@ -14,11 +14,11 @@
           <%= link_to 'Bares', nil, class: 'nav-link disabled' %>
         </li>
         <li class="nav-item">
-          <%= link_to 'Cervejas', nil, class: 'nav-link disabled' %>
+          <%= link_to 'Cervejas', search_beers_path, class: 'nav-link disabled' %>
         </li>
       </ul>
       <%= form_tag(search_beers_path, method: 'get', class: 'form-inline my-2 my-lg-0' ) do %>
-        <%= text_field_tag(:q, nil, {class: 'form-control mr-sm-2'}) %>
+        <%= text_field_tag(:q, params[:q], {class: 'form-control mr-sm-2'}) %>
         <%= submit_tag('Buscar', class: 'btn btn-outline-success my-2 my-sm-0') %>
       <% end %>
     </div>
