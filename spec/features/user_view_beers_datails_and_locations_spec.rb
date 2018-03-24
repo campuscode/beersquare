@@ -2,6 +2,7 @@ require 'rails_helper'
 
 feature 'User view' do
   scenario 'beer details' do
+    school = SchoolBeer.create(name: 'Escola Alemã')
     beer = Beer.create(
       name: 'Erdinger',
       style: 'Wheiss',
@@ -9,7 +10,8 @@ feature 'User view' do
       abv: 1.1,
       ibu: 2.2,
       nationality: 'Alemanha',
-      description: 'Cerveja de trigo deleciosamente refrescante'
+      description: 'Cerveja de trigo deliciosamente refrescante',
+      school_beer: school
     )
 
     visit beer_path(beer)
@@ -24,6 +26,7 @@ feature 'User view' do
   end
 
   scenario 'offering bar' do
+    school = SchoolBeer.create(name: 'Escola Alemã')
     beer = Beer.create(
       name: 'Erdinger',
       style: 'Wheiss',
@@ -31,7 +34,8 @@ feature 'User view' do
       abv: 1.1,
       ibu: 2.2,
       nationality: 'Alemanha',
-      description: 'Cerveja de trigo deleciosamente refrescante'
+      description: 'Cerveja de trigo deliciosamente refrescante',
+      school_beer: school
     )
 
     bar = Bar.create(
@@ -57,6 +61,7 @@ feature 'User view' do
   end
 
   scenario 'offering bars' do
+    school = SchoolBeer.create(name: 'Escola Alemã')
     beer = Beer.create(
       name: 'Erdinger',
       style: 'Wheiss',
@@ -64,7 +69,8 @@ feature 'User view' do
       abv: 1.1,
       ibu: 2.2,
       nationality: 'Alemanha',
-      description: 'Cerveja de trigo deleciosamente refrescante'
+      description: 'Cerveja de trigo deliciosamente refrescante',
+      school_beer: school
     )
 
     bar = Bar.create(
@@ -109,6 +115,7 @@ feature 'User view' do
   end
 
   scenario 'offering bars' do
+    school = SchoolBeer.create(name: 'Escola Alemã')
     beer = Beer.create(
       name: 'Erdinger',
       style: 'Wheiss',
@@ -116,7 +123,8 @@ feature 'User view' do
       abv: 1.1,
       ibu: 2.2,
       nationality: 'Alemanha',
-      description: 'Cerveja de trigo deleciosamente refrescante'
+      description: 'Cerveja de trigo deliciosamente refrescante',
+      school_beer: school
     )
 
     beer1 = Beer.create(
@@ -126,7 +134,8 @@ feature 'User view' do
       abv: 2.2,
       ibu: 1.1,
       nationality: 'Brasileira',
-      description: 'Cerveja de trigo encorpada, com notas de cravo e banana'
+      description: 'Cerveja de trigo encorpada, com notas de cravo e banana',
+      school_beer: school
     )
 
     bar = Bar.create(
@@ -171,6 +180,7 @@ feature 'User view' do
   end
 
   scenario 'offering bars' do
+    school = SchoolBeer.create(name: 'Escola Alemã')
     beer = Beer.create(
       name: 'Erdinger',
       style: 'Wheiss',
@@ -178,7 +188,8 @@ feature 'User view' do
       abv: 1.1,
       ibu: 2.2,
       nationality: 'Alemanha',
-      description: 'Cerveja de trigo deleciosamente refrescante'
+      description: 'Cerveja de trigo deliciosamente refrescante',
+      school_beer: school
     )
 
     bar = Bar.create(

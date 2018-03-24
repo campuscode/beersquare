@@ -2,11 +2,13 @@ require 'rails_helper'
 
 feature 'user choose bar' do
   scenario 'successfully' do
+    school = SchoolBeer.create(name: 'Escola Alemã')
     cerveja1 = Beer.create(
       name: 'Erdinger Weissbier',
       style: 'Weiss',
       abv: '5,3%',
-      ibu: '13'
+      ibu: '13',
+      school_beer: school
     )
     Beer.create(name: 'Urbana Boo', style: 'Wheat Ale', abv: '4,9', ibu: '20')
 

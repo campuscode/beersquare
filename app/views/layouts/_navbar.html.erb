@@ -17,6 +17,11 @@
           <%= link_to 'Cervejas', nil, class: 'nav-link disabled' %>
         </li>
       </ul>
+      <%= form_tag(search_school_beers_path, method: 'get', class: 'form-inline my-2 my-lg-0' ) do %>
+        <%= label_tag(:q, "Escola Cervejeira") %>
+        <%= select_tag(:q, options_for_select(SchoolBeer.all.map{|s| [s.name, s.id]}), {class: 'form-control mr-sm-2'}) %>
+        <%= submit_tag('Filtrar', class: 'btn btn-outline-success my-2 my-sm-0') %>
+      <% end %>
       <%= form_tag(search_beers_path, method: 'get', class: 'form-inline my-2 my-lg-0' ) do %>
         <%= text_field_tag(:q, nil, {class: 'form-control mr-sm-2'}) %>
         <%= submit_tag('Buscar', class: 'btn btn-outline-success my-2 my-sm-0') %>

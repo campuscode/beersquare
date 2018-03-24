@@ -2,11 +2,14 @@ require 'rails_helper'
 
 feature 'User search beer by name' do
   scenario 'successfully' do
+    school = SchoolBeer.create(name: 'Escola Alemã')
     Beer.create(
-      name: 'KBS 2016', style: 'Imperial Russial Stout', abv: 11.9, ibu: 70
+      name: 'KBS 2016', style: 'Imperial Russial Stout', abv: 11.9, ibu: 70,
+      school_beer: school
     )
     Beer.create(
-      name: 'KBS 2018', style: 'Imperial Russial Stout', abv: 11.9, ibu: 70
+      name: 'KBS 2018', style: 'Imperial Russial Stout', abv: 11.9, ibu: 70,
+      school_beer: school
     )
 
     visit root_path

@@ -1,0 +1,14 @@
+<div class="row">
+  <div class="col-sm-6">
+    <div class="card">
+      <div class="card-body">
+        <h1 class="card-title"><%= @school_beer.name %></h1>
+        <ul class="list-group list-group-flush">
+          <% @school_beer.beer_styles.each do |style| %>
+            <li class="list-group-item">Estilo: <%= style.name %></li>
+          <% end %>
+        </ul>
+      </div>
+    </div>
+  </div>
+</div>
