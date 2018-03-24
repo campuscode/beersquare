@@ -9,7 +9,7 @@ feature 'User view' do
       abv: 1.1,
       ibu: 2.2,
       nationality: 'Alemanha',
-      description: 'Cerveja de trigo deleciosamente refrescante'
+      description: 'Cerveja de trigo deliciosamente refrescante'
     )
 
     visit beer_path(beer)
@@ -56,7 +56,7 @@ feature 'User view' do
     expect(page).to have_css('div', text: bar.neighborhood)
   end
 
-  scenario 'offering bars' do
+  scenario 'user finds 2 bars' do
     beer = Beer.create(
       name: 'Erdinger',
       style: 'Wheiss',
@@ -116,7 +116,7 @@ feature 'User view' do
       abv: 1.1,
       ibu: 2.2,
       nationality: 'Alemanha',
-      description: 'Cerveja de trigo deleciosamente refrescante'
+      description: 'Cerveja de trigo deliciosamente refrescante'
     )
 
     beer1 = Beer.create(
@@ -178,7 +178,7 @@ feature 'User view' do
       abv: 1.1,
       ibu: 2.2,
       nationality: 'Alemanha',
-      description: 'Cerveja de trigo deleciosamente refrescante'
+      description: 'Cerveja de trigo deliciosamente refrescante'
     )
 
     bar = Bar.create(
@@ -202,5 +202,48 @@ feature 'User view' do
     expect(page).to have_css(
       'div', text: 'No momento nenhum bar está oferecendo esta cerveja'
     )
+  end
+
+  scenario 'user view bar details' do
+    beer = Beer.create(
+      name: 'Erdinger',
+      style: 'Wheiss',
+      brewery: 'Cervejaria alemã',
+      abv: 1.1,
+      ibu: 2.2,
+      nationality: 'Alemanha',
+      description: 'Cerveja de trigo deliciosamente refrescante'
+    )
+
+    bar = Bar.create(
+      name: 'Bar Budha',
+      state: 'TO',
+      city: 'Tocantins',
+      neighborhood: 'Vl. Madalena',
+      zip_code: '05404-100',
+      phone: '(11) 4321-1234',
+      trading_hour: 'de segunda a segunda das 16:00 às 03:00',
+      payment: 'Cheque, dinheiro e cartão',
+      rank: '10',
+      services: 'Menu completo'
+    )
+
+    BarBeer.create(
+      bar: bar, beer: beer
+    )
+
+    visit beer_path(beer)
+    click_on 'Bar Budha'
+
+    expect(page).to have_css('h3', text: bar.name)
+    expect(page).to have_css('li', text: bar.neighborhood)
+    expect(page).to have_css('li', text: bar.city)
+    expect(page).to have_css('li', text: bar.state)
+    expect(page).to have_css('li', text: bar.zip_code)
+    expect(page).to have_css('li', text: bar.phone)
+    expect(page).to have_css('li', text: bar.trading_hour)
+    expect(page).to have_css('li', text: bar.payment)
+    expect(page).to have_css('li', text: bar.rank)
+    expect(page).to have_css('li', text: bar.services)
   end
 end
