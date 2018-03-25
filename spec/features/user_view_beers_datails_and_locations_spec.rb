@@ -36,7 +36,6 @@ feature 'User view' do
 
     bar = Bar.create(
       name: 'Bar do Zé',
-      address: 'R. Vupabussu, 305',
       state: 'SP',
       city: 'São Paulo',
       neighborhood: 'Pinheiros',
@@ -70,7 +69,6 @@ feature 'User view' do
 
     bar = Bar.create(
       name: 'Bar do Zé',
-      address: 'R. Vupabussu, 305',
       state: 'SP',
       city: 'São Paulo',
       neighborhood: 'Pinheiros',
@@ -84,7 +82,6 @@ feature 'User view' do
 
     bar1 = Bar.create(
       name: 'Bar Budha',
-      address: 'R. Vupabussu, 305',
       state: 'TO',
       city: 'Tocantins',
       neighborhood: 'Vl. Madalena',
@@ -134,7 +131,6 @@ feature 'User view' do
 
     bar = Bar.create(
       name: 'Bar do Zé',
-      address: 'R. Vupabussu, 305',
       state: 'SP',
       city: 'São Paulo',
       neighborhood: 'Pinheiros',
@@ -148,7 +144,6 @@ feature 'User view' do
 
     bar1 = Bar.create(
       name: 'Bar Budha',
-      address: 'R. Vupabussu, 305',
       state: 'TO',
       city: 'Tocantins',
       neighborhood: 'Vl. Madalena',
@@ -188,7 +183,6 @@ feature 'User view' do
 
     bar = Bar.create(
       name: 'Bar Budha',
-      address: 'R. Vupabussu, 305',
       state: 'TO',
       city: 'Tocantins',
       neighborhood: 'Vl. Madalena',
