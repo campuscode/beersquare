@@ -19,7 +19,7 @@
   <% else %>
     <% @beer.bars.each do |bar| %>
       <div class=row>
-        <div><h4><%= bar.name %></h4></div>
+        <div><h4><%= link_to bar.name, bar_path(bar) %></h4></div>
         <div><%= bar.state %></div>
         <div><%= bar.city %></div>
         <div><%= bar.neighborhood %></div>
