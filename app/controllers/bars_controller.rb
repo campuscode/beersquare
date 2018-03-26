@@ -1,4 +1,4 @@
-class BarController < ApplicationController
+class BarsController < ApplicationController
   def show
     @bar = Bar.find(params[:id])
   end
