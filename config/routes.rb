@@ -4,5 +4,7 @@ Rails.application.routes.draw do
     get 'search', on: :collection
   end
 
-  resources :bars, only:[:show]
+  resources :bars, only:[:show] do
+    get 'search', on: :collection
+  end
 end
