@@ -70,4 +70,51 @@ feature 'user choose bar' do
       'Este bar não tem cerveja disponível no momento'
     )
   end
+
+  scenario 'and bar show beer list' do
+    bar = Bar.create(
+      name: 'CampusCode Pub',
+      state: 'SP',
+      city: 'São Paulo',
+      neighborhood: 'Jardins',
+      zip_code: '01234-001',
+      phone: '11-55006789',
+      trading_hour: '17:00 - 00:00',
+      payment: 'dinheiro, cartões de crédito e débito',
+      rank: '5.0',
+      services: 'cozinha, valet, música ao vivo'
+    )
+
+    school = SchoolBeer.create(name: 'Escola Alemã')
+    beer = Beer.create(
+      name: 'Erdinger',
+      style: 'Wheiss',
+      brewery: 'Cervejaria alemã',
+      abv: 1.1,
+      ibu: 2.2,
+      nationality: 'Alemanha',
+      description: 'Cerveja de trigo deliciosamente refrescante',
+      school_beer: school
+    )
+
+    beer1 = Beer.create(
+      name: 'Matta',
+      style: 'Wheiss',
+      brewery: 'Da Matta',
+      abv: 2.2,
+      ibu: 1.1,
+      nationality: 'Brasileira',
+      description: 'Cerveja de trigo encorpada, com notas de cravo e banana',
+      school_beer: school
+    )
+
+    BarBeer.create(bar: bar, beer: beer)
+    BarBeer.create(bar: bar, beer: beer1)
+
+    visit bar_path(bar)
+
+    expect(page).to have_content('Cervejas:')
+    expect(page).to have_css('li', text: beer.name)
+    expect(page).to have_css('li', text: beer1.name)
+  end
 end
