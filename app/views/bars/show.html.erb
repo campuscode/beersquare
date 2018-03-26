@@ -1,5 +1,5 @@
 <h3><%= @bar.name %></h3>
-<ul>
+<ul class="list-group">
   <li><%= @bar.neighborhood %></li>
   <li><%= @bar.city %></li>
   <li><%= @bar.state %></li>
@@ -10,10 +10,12 @@
   <li><%= @bar.rank %></li>
   <li><%= @bar.services %></li>
 </ul>
-<h3> 'Cervejas:' </h3>
+<h3> Cervejas: </h3>
 <ul>
   <% if @bar.beers.empty? %>
+  <div class="alert alert-danger" role="alert" >
     <%= 'Este bar não tem cerveja disponível no momento' %>
+  </div>
     <% else %>
       <% @bar.beers.each do |beer| %>
         <li><%= beer.name %></li>
