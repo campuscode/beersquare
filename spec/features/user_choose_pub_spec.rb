@@ -103,13 +103,13 @@ feature 'user choose bar' do
       description: 'Cerveja de trigo encorpada, com notas de cravo e banana'
     )
 
-    bar_beer = BarBeer.create(bar:bar, beer:beer)
-    bar_beer1 = BarBeer.create(bar:bar, beer:beer1)
+    BarBeer.create(bar: bar, beer: beer)
+    BarBeer.create(bar: bar, beer: beer1)
 
     visit bar_path(bar)
 
-    expect(page).to have_content('Cervejas da Casa')
+    expect(page).to have_content('Cervejas:')
     expect(page).to have_css('li', text: beer.name)
-    expect(page).to_have_css('li', text: beer1.name)
+    expect(page).to have_css('li', text: beer1.name)
   end
 end
