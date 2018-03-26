@@ -16,7 +16,7 @@ feature 'User search beer by name' do
     fill_in 'q', with: 'KBS 2016'
     click_on 'Buscar'
 
-    expect(page).to have_css('li', text: 'KBS 2016')
+    expect(page).to have_css('div', text: 'KBS 2016')
     expect(page).to have_css('li', text: 'Estilo: Imperial Russial Stout')
     expect(page).to have_css('li', text: 'ABV: 11.9%')
     expect(page).to have_css('li', text: 'IBU: 70')
@@ -30,11 +30,11 @@ feature 'User search beer by name' do
     fill_in 'q', with: 'KBS'
     click_on 'Buscar'
 
-    expect(page).to have_css('li', text: beer1.name)
+    expect(page).to have_css('div', text: beer1.name)
     expect(page).to have_css('li', text: 'Estilo: Imperial Russial Stout')
     expect(page).to have_css('li', text: 'ABV: 11.9%')
     expect(page).to have_css('li', text: 'IBU: 70')
-    expect(page).to have_css('li', text: beer2.name)
+    expect(page).to have_css('div', text: beer2.name)
   end
 
   scenario 'and not found' do

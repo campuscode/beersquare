@@ -34,6 +34,7 @@ ActiveRecord::Schema.define(version: 20180324003119) do
     t.string "services"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
+    t.string "address"
   end
 
   create_table "beer_styles", force: :cascade do |t|
