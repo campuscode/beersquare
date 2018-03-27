@@ -35,8 +35,7 @@ feature 'User view' do
     )
 
     bar = Bar.create(
-      name: 'Bar do Zé',
-      address: 'R. Vupabussu, 305',
+      name: 'Bar do Zé', address: 'R. Vupabussu, 305',
       state: 'SP',
       city: 'São Paulo',
       neighborhood: 'Pinheiros',
