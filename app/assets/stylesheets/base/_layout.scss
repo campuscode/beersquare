@@ -1,0 +1,11 @@
+$google-maps-api-key: 'AIzaSyBzwAOD-1jf_e6ZmAZlMbdxRmWTmnUmaSQ';
+$lat: '-23.5604338';
+$lng: '-46.6560602';
+
+body {
+  background-image:
+  url("https://maps.googleapis.com/maps/api/staticmap?center=#{$lat},#{$lng}&zoom=16&size=2800x1000&path=weight:3%7Ccolor:blue%7Cenc:{coaHnetiVjM??_SkM??~R&key=#{$google-maps-api-key}");
+  background-attachment: fixed;
+  background-repeat: no-repeat;
+  background-size: cover;
+}
