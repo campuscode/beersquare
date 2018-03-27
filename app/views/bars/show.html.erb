@@ -13,10 +13,29 @@
 <h3> 'Cervejas:' </h3>
 <ul>
   <% if @bar.beers.empty? %>
-    <%= 'Este bar não tem cerveja disponível no momento' %>
+    Este bar não tem cerveja disponível no momento
     <% else %>
       <% @bar.beers.each do |beer| %>
-        <li><%= beer.name %></li>
+        <li><%= link_to beer.name, beer_path(beer) %>
+            <%= link_to t('checkin'), bar_checkins_path(@bar, beer_id: beer.id), method: :post %></li>
     <% end %>
   <% end %>
 </ul>
+
+<div class="card col-md-2">
+  <div class="card-body">
+    <h5 class="card-title">Últimos Checkins</h5>
+    <% if @checkins.empty? %>
+      Este bar ainda não recebeu nenhum checkin =(
+    <% else %>
+      <ul class="list-group list-group-flush">
+      <%= @checkins.each do |checkin| %>
+        <li class="list-group-item checkin">
+          <%= checkin.beer.name %><%= time_ago_in_words(checkin.created_at) %>
+          <div class="checkins_counter"><%= checkin.beer %></div>
+        </li>
+      <% end %>
+    <% end %>
+    </ul>
+  </div>
+</div>
