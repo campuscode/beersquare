@@ -39,7 +39,7 @@ feature 'user choose bar' do
     )
     expect(page).to have_css('li', text: '5.0')
     expect(page).to have_css('li', text: 'cozinha, valet, música ao vivo')
-    expect(page).to have_content('Cervejas: ')
+    expect(page).to have_content('Cervejas')
     expect(page).to have_css('li', text: 'Erdinger Weissbier')
     expect(page).not_to have_css('li', text: 'Urbana Boo')
   end
@@ -62,7 +62,7 @@ feature 'user choose bar' do
 
     visit bar_path(bar)
 
-    expect(page).to have_content('Cervejas: ')
+    expect(page).to have_content('Cervejas')
     expect(page).to_not have_css('li', text: 'Urbana Boo')
     expect(page).to have_content(
       'Este bar não tem cerveja disponível no momento'
@@ -108,7 +108,7 @@ feature 'user choose bar' do
 
     visit bar_path(bar)
 
-    expect(page).to have_content('Cervejas:')
+    expect(page).to have_content('Cervejas')
     expect(page).to have_css('li', text: beer.name)
     expect(page).to have_css('li', text: beer1.name)
   end
