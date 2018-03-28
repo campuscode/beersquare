@@ -28,8 +28,16 @@
   <% end %>
 </div>
 <div class="col-md-8" style="float: right">
-  <h3> 'Últimos checkins:' </h3>
-  <ul>
-    <li> check.bar.name </li>
-  </ul>
+  <% if @checkins.empty? %>
+    Seja o primeiro a fazer esse checkin
+  <% else %>
+    <h3>Últimos checkins:</h3>
+    <% @checkins.each do |checkin| %>
+    <ul>
+      <% from_time = checkin.created_at %>
+      <li><%= checkin.bar.name %></li>
+      <li><%= time_ago_in_words(from_time) %></li>
+    </ul>
+    <% end %>
+  <% end %>
 </div>

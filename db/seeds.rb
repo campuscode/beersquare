@@ -1,3 +1,5 @@
+school_beer = SchoolBeer.create(name: 'Escola Americana')
+
 beer = Beer.create(
   name: 'KBS 2016',
   brewery: 'Founders Brewing',
@@ -5,10 +7,11 @@ beer = Beer.create(
   abv: 11.9,
   ibu: 70,
   nationality: 'American',
-  description: 'Descrição da cerveja maravilhosa'
+  description: 'Descrição da cerveja maravilhosa',
+  school_beer: school_beer
 )
 
-local = Bar.create(
+bar = Bar.create(
   name: 'EAP',
   phone: '(11) 3031-4328',
   address: 'R. Vupabussu, 305',
@@ -22,7 +25,9 @@ local = Bar.create(
   services: 'Servimos porções e lanches'
 )
 
-user = User.create(
+BarBeer.create(bar: bar, beer: beer)
+
+User.create(
   email: 'meu@email.com',
   password: '123456'
 )
