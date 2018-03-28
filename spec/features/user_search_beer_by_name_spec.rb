@@ -20,7 +20,6 @@ feature 'User search beer by name' do
     expect(page).to have_css('li', text: 'Estilo: Imperial Russial Stout')
     expect(page).to have_css('li', text: 'ABV: 11.9%')
     expect(page).to have_css('li', text: 'IBU: 70')
-
     expect(page).to_not have_css('div.card-header', text: 'KBS 2018')
   end
 
@@ -51,15 +50,8 @@ feature 'User search beer by name' do
 
   scenario 'user view beer details' do
     create(:bar)
-    beer = create(
-      :beer,
-      name: 'KBS 2016',
-      style: 'Imperial Russial Stout',
-      abv: 11.9,
-      ibu: 70,
-      nationality: 'American',
-      description: 'Descrição da cerveja maravilhosa'
-    )
+    school = create(:school_beer, name: 'Escola Americana')
+    beer = create(:beer, school_beer: school)
 
     visit root_path
     fill_in 'q', with: 'KBS 2016'

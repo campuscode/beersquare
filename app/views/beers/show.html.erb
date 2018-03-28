@@ -34,9 +34,8 @@
     <h3>Últimos checkins:</h3>
     <% @checkins.each do |checkin| %>
     <ul>
-      <% from_time = checkin.created_at %>
       <li><%= checkin.bar.name %></li>
-      <li><%= time_ago_in_words(from_time) %></li>
+      <li><%= time_ago_in_words(checkin.created_at) %></li>
     </ul>
     <% end %>
   <% end %>

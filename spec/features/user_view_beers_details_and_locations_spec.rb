@@ -37,9 +37,9 @@ feature 'User view' do
       description: 'Cerveja de trigo deliciosamente refrescante',
       school_beer: school
     )
-
     bar = Bar.create(
-      name: 'Bar do Zé', address: 'R. Vupabussu, 305',
+      name: 'Bar do Zé',
+      address: 'R. Vupabussu, 305',
       state: 'SP',
       city: 'São Paulo',
       neighborhood: 'Pinheiros',
@@ -50,7 +50,6 @@ feature 'User view' do
       rank: '10',
       services: 'Menu completo'
     )
-
     BarBeer.create(bar: bar, beer: beer)
 
     visit beer_path(beer)
@@ -72,7 +71,6 @@ feature 'User view' do
       description: 'Cerveja de trigo deliciosamente refrescante',
       school_beer: school
     )
-
     bar = Bar.create(
       name: 'Bar do Zé',
       address: 'R. Vupabussu, 305',
@@ -86,7 +84,6 @@ feature 'User view' do
       rank: '10',
       services: 'Menu completo'
     )
-
     bar1 = Bar.create(
       name: 'Bar Budha',
       address: 'R. Vupabussu, 305',
@@ -100,7 +97,6 @@ feature 'User view' do
       rank: '10',
       services: 'Menu completo'
     )
-
     BarBeer.create(bar: bar, beer: beer)
     BarBeer.create(bar: bar1, beer: beer)
 
@@ -128,7 +124,6 @@ feature 'User view' do
       description: 'Cerveja de trigo deliciosamente refrescante',
       school_beer: school
     )
-
     beer1 = Beer.create(
       name: 'Matta',
       style: 'Wheiss',
@@ -139,7 +134,6 @@ feature 'User view' do
       description: 'Cerveja de trigo encorpada, com notas de cravo e banana',
       school_beer: school
     )
-
     bar = Bar.create(
       name: 'Bar do Zé',
       address: 'R. Vupabussu, 305',
@@ -153,7 +147,6 @@ feature 'User view' do
       rank: '10',
       services: 'Menu completo'
     )
-
     bar1 = Bar.create(
       name: 'Bar Budha',
       address: 'R. Vupabussu, 305',
@@ -167,7 +160,6 @@ feature 'User view' do
       rank: '10',
       services: 'Menu completo'
     )
-
     BarBeer.create(bar: bar, beer: beer)
     BarBeer.create(bar: bar1, beer: beer1)
 
@@ -195,7 +187,6 @@ feature 'User view' do
       description: 'Cerveja de trigo deliciosamente refrescante',
       school_beer: school
     )
-
     bar = Bar.create(
       name: 'Bar Budha',
       address: 'R. Vupabussu, 305',
@@ -209,15 +200,15 @@ feature 'User view' do
       rank: '10',
       services: 'Menu completo'
     )
+    info_message = 'No momento nenhum bar está oferecendo esta cerveja'
 
     visit beer_path(beer)
+
     expect(page).to_not have_css('h4', text: bar.name)
     expect(page).to_not have_css('div', text: bar.state)
     expect(page).to_not have_css('div', text: bar.city)
     expect(page).to_not have_css('div', text: bar.neighborhood)
-    expect(page).to have_css(
-      'div', text: 'No momento nenhum bar está oferecendo esta cerveja'
-    )
+    expect(page).to have_css('div', text: info_message)
   end
 
   scenario 'user view bar details' do
@@ -232,7 +223,6 @@ feature 'User view' do
       description: 'Cerveja de trigo deliciosamente refrescante',
       school_beer: school
     )
-
     bar = Bar.create(
       name: 'Bar Budha',
       state: 'TO',
@@ -245,10 +235,7 @@ feature 'User view' do
       rank: '10',
       services: 'Menu completo'
     )
-
-    BarBeer.create(
-      bar: bar, beer: beer
-    )
+    BarBeer.create(bar: bar, beer: beer)
 
     visit beer_path(beer)
     click_on 'Bar Budha'
