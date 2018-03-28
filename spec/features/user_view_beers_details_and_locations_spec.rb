@@ -16,13 +16,13 @@ feature 'User view' do
 
     visit beer_path(beer)
 
-    expect(page).to have_css('h4', text: beer.name)
+    expect(page).to have_css('h3', text: beer.name)
     expect(page).to have_css('h4', text: "Estilo: #{beer.style}")
-    expect(page).to have_css('div', text: "Cervejaria: #{beer.brewery}")
-    expect(page).to have_css('div', text: "ABV: #{beer.abv}")
-    expect(page).to have_css('div', text: "IBU: #{beer.ibu}")
-    expect(page).to have_css('div', text: "Nacionalidade: #{beer.nationality}")
-    expect(page).to have_css('div', text: "Descrição: #{beer.description}")
+    expect(page).to have_css('li', text: "Cervejaria: #{beer.brewery}")
+    expect(page).to have_css('li', text: "ABV: #{beer.abv}")
+    expect(page).to have_css('li', text: "IBU: #{beer.ibu}")
+    expect(page).to have_css('li', text: "Nacionalidade: #{beer.nationality}")
+    expect(page).to have_css('li', text: "Descrição: #{beer.description}")
   end
 
   scenario 'offering bar' do
@@ -55,10 +55,10 @@ feature 'User view' do
     BarBeer.create(bar: bar, beer: beer)
 
     visit beer_path(beer)
-    expect(page).to have_css('h4', text: bar.name)
-    expect(page).to have_css('div', text: bar.state)
-    expect(page).to have_css('div', text: bar.city)
-    expect(page).to have_css('div', text: bar.neighborhood)
+    expect(page).to have_css('h3', text: bar.name)
+    expect(page).to have_css('li', text: bar.state)
+    expect(page).to have_css('li', text: bar.city)
+    expect(page).to have_css('li', text: bar.neighborhood)
   end
 
   scenario 'user finds 2 bars' do
@@ -106,15 +106,15 @@ feature 'User view' do
     BarBeer.create(bar: bar1, beer: beer)
 
     visit beer_path(beer)
-    expect(page).to have_css('h4', text: bar.name)
-    expect(page).to have_css('div', text: bar.state)
-    expect(page).to have_css('div', text: bar.city)
-    expect(page).to have_css('div', text: bar.neighborhood)
+    expect(page).to have_css('h3', text: bar.name)
+    expect(page).to have_css('li', text: bar.state)
+    expect(page).to have_css('li', text: bar.city)
+    expect(page).to have_css('li', text: bar.neighborhood)
 
-    expect(page).to have_css('h4', text: bar1.name)
-    expect(page).to have_css('div', text: bar1.state)
-    expect(page).to have_css('div', text: bar1.city)
-    expect(page).to have_css('div', text: bar1.neighborhood)
+    expect(page).to have_css('h3', text: bar1.name)
+    expect(page).to have_css('li', text: bar1.state)
+    expect(page).to have_css('li', text: bar1.city)
+    expect(page).to have_css('li', text: bar1.neighborhood)
   end
 
   scenario 'offering bars' do
@@ -173,15 +173,15 @@ feature 'User view' do
     BarBeer.create(bar: bar1, beer: beer1)
 
     visit beer_path(beer)
-    expect(page).to have_css('h4', text: bar.name)
-    expect(page).to have_css('div', text: bar.state)
-    expect(page).to have_css('div', text: bar.city)
-    expect(page).to have_css('div', text: bar.neighborhood)
+    expect(page).to have_css('h3', text: bar.name)
+    expect(page).to have_css('li', text: bar.state)
+    expect(page).to have_css('li', text: bar.city)
+    expect(page).to have_css('li', text: bar.neighborhood)
 
-    expect(page).to_not have_css('h4', text: bar1.name)
-    expect(page).to_not have_css('div', text: bar1.state)
-    expect(page).to_not have_css('div', text: bar1.city)
-    expect(page).to_not have_css('div', text: bar1.neighborhood)
+    expect(page).to_not have_css('h3', text: bar1.name)
+    expect(page).to_not have_css('li', text: bar1.state)
+    expect(page).to_not have_css('li', text: bar1.city)
+    expect(page).to_not have_css('li', text: bar1.neighborhood)
   end
 
   scenario 'offering bars' do
@@ -212,10 +212,10 @@ feature 'User view' do
     )
 
     visit beer_path(beer)
-    expect(page).to_not have_css('h4', text: bar.name)
-    expect(page).to_not have_css('div', text: bar.state)
-    expect(page).to_not have_css('div', text: bar.city)
-    expect(page).to_not have_css('div', text: bar.neighborhood)
+    expect(page).to_not have_css('h3', text: bar.name)
+    expect(page).to_not have_css('li', text: bar.state)
+    expect(page).to_not have_css('li', text: bar.city)
+    expect(page).to_not have_css('li', text: bar.neighborhood)
     expect(page).to have_css(
       'div', text: 'No momento nenhum bar está oferecendo esta cerveja'
     )

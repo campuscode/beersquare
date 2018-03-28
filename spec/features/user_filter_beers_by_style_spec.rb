@@ -4,7 +4,7 @@ feature 'User filter beer' do
   scenario 'by its school' do
     school = SchoolBeer.create(name: 'Escola Alemã')
 
-    visit root_path
+    visit search_beers_path
     select 'Escola Alemã', from: 'Escola Cervejeira'
     click_on 'Filtrar'
 
@@ -18,7 +18,7 @@ feature 'User filter beer' do
     BeerStyle.create(name: 'Berliner', school_beer: school)
     BeerStyle.create(name: 'Pilsner', school_beer: school)
 
-    visit root_path
+    visit search_beers_path
     select 'Escola Alemã', from: 'Escola Cervejeira'
     click_on 'Filtrar'
 

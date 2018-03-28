@@ -12,6 +12,7 @@ feature 'User view' do
   end
 
   scenario 'no bar' do
+    Bar.delete_all
     visit bars_path
 
     expect(page).to have_content('Não existem bares cadastrados até o momento')

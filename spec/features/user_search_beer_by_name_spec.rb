@@ -66,12 +66,12 @@ feature 'User search beer by name' do
     click_on 'Buscar'
     click_on 'KBS 2016'
 
-    expect(page).to have_css('h4.card-title', text: beer.name)
+    expect(page).to have_css('h3.card-title', text: beer.name)
     expect(page).to have_css('h4', text: beer.style)
-    expect(page).to have_css('div', text: beer.abv)
-    expect(page).to have_css('div', text: beer.ibu)
-    expect(page).to have_css('div', text: beer.brewery)
-    expect(page).to have_css('div', text: beer.nationality)
-    expect(page).to have_css('div', text: beer.description)
+    expect(page).to have_css('li', text: beer.abv)
+    expect(page).to have_css('li', text: beer.ibu)
+    expect(page).to have_css('li', text: beer.brewery)
+    expect(page).to have_css('li', text: beer.nationality)
+    expect(page).to have_css('li', text: beer.description)
   end
 end

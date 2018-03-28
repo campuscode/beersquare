@@ -1,9 +1,9 @@
-<div class="card card--dark md-5 box-shadow" style="float: left">
+<div class="card card--dark md-5 box-shadow">
   <div class="card-img-top">
     <img src="http://www.veroverde.com.br/wp-content/uploads/2015/05/cropped-Panorama2.jpg" alt="">
   </div>
   <div class="card-body">
-    <h3><%= bar.name %></h3>
+    <h3 class="card-title"><%= link_to bar.name, bar_path(bar) %></h3>
   </div>
   <div class="card-body data-list-container">
     <ul class="list-group list-group-flush">
