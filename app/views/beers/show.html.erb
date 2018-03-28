@@ -1,42 +1,52 @@
-<div class="col-md-4" id="sticky-sidebar">
-  <div class="card">
-    <img class="card-img-top" src="..." alt="Card image cap">
+<div class="md-3 position-fixed">
+  <div class="card card--dark md-5 box-shadow">
+    <div class="card-img-top">
+      <img src="..." alt="Card image cap">
+    </div>
     <div class="card-body">
-      <h4 class="card-title"><%= @beer.name %></h4>
-      <p class="card-text"><h4>Estilo: <%= @beer.style %></h4></p>
-      <p class="card-text"><div>Cervejaria: <%= @beer.brewery %></div></p>
-      <p class="card-text"><div>ABV: <%= @beer.abv %>%</div></p>
-      <p class="card-text"><div>IBU: <%= @beer.ibu %></div></p>
-      <p class="card-text"><div>Nacionalidade: <%= @beer.nationality %></div></p>
-      <p class="card-text"><div>Descrição: <%= @beer.description %></div></p>
+      <h3 class="card-title"><%= @beer.name %></h3>
+    </div>
+    <div class="card-body">
+      <div class="list-group list-group-flush">
+        <ul class="list-group list-group-flush">
+          <li class="list-group-item text-light bg-dark"><h4>Estilo: <%= @beer.style %></h4></p>
+          <li class="list-group-item text-light bg-dark">Cervejaria: <%= @beer.brewery %></li>
+          <li class="list-group-item text-light bg-dark">ABV: <%= @beer.abv %>%</li>
+          <li class="list-group-item text-light bg-dark">IBU: <%= @beer.ibu %></li>
+          <li class="list-group-item text-light bg-dark">Nacionalidade: <%= @beer.nationality %></li>
+          <li class="list-group-item text-light bg-dark">Descrição: <%= @beer.description %></li>
+        </ul>
+      </div>
     </div>
   </div>
 </div>
 
-<div class="col-md-8" style="float: right">
-  <% if @beer.bars.empty? %>
-    <div class="alert alert-danger" role="alert">No momento nenhum bar está oferecendo esta cerveja</div>
-  <% else %>
+<% if @beer.bars.empty? %>
+  <div class="alert alert-danger" role="alert">No momento nenhum bar está oferecendo esta cerveja</div>
+<% else %>
+  <div style="margin-left: 450px">
     <% @beer.bars.each do |bar| %>
-      <div class=row>
-        <div><h4><%= link_to bar.name, bar_path(bar) %></h4></div>
-        <div><%= bar.state %></div>
-        <div><%= bar.city %></div>
-        <div><%= bar.neighborhood %></div>
-      </div>
+      <%= render partial: "shared/bar", locals: {bar: bar} %>
     <% end %>
-  <% end %>
-</div>
-<div class="col-md-8" style="float: right">
-  <% if @checkins.empty? %>
-    Seja o primeiro a fazer esse checkin
-  <% else %>
-    <h3>Últimos checkins:</h3>
-    <% @checkins.each do |checkin| %>
-    <ul>
-      <li><%= checkin.bar.name %></li>
-      <li><%= time_ago_in_words(checkin.created_at) %></li>
-    </ul>
+  </div>
+<% end %>
+
+
+<div class="card card--dark md-2" style="float: right; margin-top: 15em; margin-left: 50px">
+  <div class="card-body">
+    <h5 class="card-title">Últimos Checkins</h5>
+  </div>
+  <div class="card-body data-list-container">
+    <% if @checkins.empty? %>
+      <div class="alert alert-danger" role="alert">Seja o primeiro a fazer esse checkin</div>
+    <% else %>
+      <ul class="list-group list-group-flush">
+        <% @checkins.each do |checkin| %>
+          <li class="list-group-item checkin check_<%= checkin.created_at.to_i%> text-light bg-dark">
+            <%= checkin.bar.name %> <small><i>há <%= time_ago_in_words(checkin.created_at) %></i></small>
+          </li>
+        <% end %>
+      </ul>
     <% end %>
-  <% end %>
+  </div>
 </div>
