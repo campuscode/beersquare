@@ -1,22 +1,67 @@
-<h3><%= @bar.name %></h3>
-<ul>
-  <li><%= @bar.neighborhood %></li>
-  <li><%= @bar.city %></li>
-  <li><%= @bar.state %></li>
-  <li><%= @bar.zip_code %></li>
-  <li><%= @bar.phone %></li>
-  <li><%= @bar.trading_hour %></li>
-  <li><%= @bar.payment %></li>
-  <li><%= @bar.rank %></li>
-  <li><%= @bar.services %></li>
-</ul>
-<h3> 'Cervejas:' </h3>
-<ul>
-  <% if @bar.beers.empty? %>
-    <%= 'Este bar não tem cerveja disponível no momento' %>
+<div class="card mb-5 box-shadow">
+  <div class="card-img-top">
+    <img src="http://www.veroverde.com.br/wp-content/uploads/2015/05/cropped-Panorama2.jpg" alt="">
+  </div>
+  <div class="card-body">
+    <h3><%= @bar.name %></h3>
+  </div>
+  <div class="card-body data-list-container">
+    <ul class="data-list">
+      <li class="data-list__item"><%= fa_icon('map-marker') %> <%= @bar.neighborhood %></li>
+      <li class="data-list__item"><%= fa_icon('location-arrow') %> <%= @bar.city %></li>
+      <li class="data-list__item"><%= fa_icon('map') %> <%= @bar.state %></li>
+      <li class="data-list__item"><%= fa_icon('globe') %> <%= @bar.zip_code %></li>
+      <li class="data-list__item"><%= fa_icon('phone') %> <%= @bar.phone %></li>
+      <li class="data-list__item"><%= fa_icon('fort-awesome') %> <%= @bar.trading_hour %></li>
+      <li class="data-list__item"><%= fa_icon('money') %> <%= @bar.payment %></li>
+      <li class="data-list__item"><%= fa_icon('star') %> <%= @bar.rank %></li>
+      <li class="data-list__item"><%= fa_icon('spoon') %> <%= @bar.services %></li>
+    </ul>
+  </div>
+  <div class="card-body">
+    <h3>Cervejas</h3>
+    <% if @bar.beers.empty? %>
+      <%= 'Este bar não tem cerveja disponível no momento' %>
     <% else %>
-      <% @bar.beers.each do |beer| %>
-        <li><%= beer.name %></li>
+      <ul>
+        <% @bar.beers.each do |beer| %>
+          <li><%= beer.name %></li>
+        <% end %>
+      </ul>
     <% end %>
-  <% end %>
-</ul>
+  </div>
+</div>
+
+<div class="card card--dark mb-5 box-shadow">
+  <div class="card-img-top">
+    <img src="http://www.veroverde.com.br/wp-content/uploads/2015/05/cropped-Panorama2.jpg" alt="">
+  </div>
+  <div class="card-body">
+    <h3><%= @bar.name %></h3>
+  </div>
+  <div class="card-body data-list-container">
+    <ul class="data-list">
+      <li class="data-list__item"><%= fa_icon('map-marker') %> <%= @bar.neighborhood %></li>
+      <li class="data-list__item"><%= fa_icon('location-arrow') %> <%= @bar.city %></li>
+      <li class="data-list__item"><%= fa_icon('map') %> <%= @bar.state %></li>
+      <li class="data-list__item"><%= fa_icon('globe') %> <%= @bar.zip_code %></li>
+      <li class="data-list__item"><%= fa_icon('phone') %> <%= @bar.phone %></li>
+      <li class="data-list__item"><%= fa_icon('fort-awesome') %> <%= @bar.trading_hour %></li>
+      <li class="data-list__item"><%= fa_icon('money') %> <%= @bar.payment %></li>
+      <li class="data-list__item"><%= fa_icon('star') %> <%= @bar.rank %></li>
+      <li class="data-list__item"><%= fa_icon('spoon') %> <%= @bar.services %></li>
+    </ul>
+  </div>
+  <div class="card-body">
+    <h3>Cervejas</h3>
+    <% if @bar.beers.empty? %>
+      <%= 'Este bar não tem cerveja disponível no momento' %>
+    <% else %>
+      <ul>
+        <% @bar.beers.each do |beer| %>
+          <li><%= beer.name %></li>
+        <% end %>
+      </ul>
+    <% end %>
+  </div>
+</div>

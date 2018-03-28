@@ -1,5 +1,5 @@
 <div class="container">
-  <nav class="navbar navbar-expand-lg navbar-dark bg-dark fixed-top">
+  <nav class="navbar navbar-expand-lg fixed-top navbar-dark bg-dark">
     <%= link_to 'BeerSquare', root_path, class: 'navbar-brand' %>
     <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
       <span class="navbar-toggler-icon"></span>
@@ -17,6 +17,11 @@
           <%= link_to 'Cervejas', search_beers_path, class: 'nav-link disabled' %>
         </li>
       </ul>
+      <%= form_tag(search_school_beers_path, method: 'get', class: 'form-inline my-2 my-lg-0' ) do %>
+        <%= label_tag(:q, "Escola Cervejeira", class: 'nav-link disabled') %>
+        <%= select_tag(:q, options_for_select(SchoolBeer.all.map{|s| [s.name, s.id]}), {class: 'form-control mr-sm-2'}) %>
+        <%= submit_tag('Filtrar', class: 'btn btn-outline-success my-2 my-sm-0') %>
+      <% end %>
       <%= form_tag(search_beers_path, method: 'get', class: 'form-inline my-2 my-lg-0' ) do %>
         <%= text_field_tag(:q, params[:q], {class: 'form-control mr-sm-2'}) %>
         <%= submit_tag('Buscar', class: 'btn btn-outline-success my-2 my-sm-0') %>
