@@ -6,5 +6,6 @@ class BeersController < ApplicationController
 
   def show
     @beer = Beer.find(params[:id])
+    @checkins = Checkin.where(beer_id: @beer.id).order(created_at: :desc)
   end
 end
