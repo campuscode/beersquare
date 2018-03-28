@@ -209,7 +209,7 @@ bar = Bar.create(
 
 beers.each{|beer| BarBeer.create(bar: bar, beer: beer)}
 
-user = User.create(
+User.create(
   email: 'meu@email.com',
   password: '123456'
 )

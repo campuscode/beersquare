@@ -30,3 +30,17 @@
     <% end %>
   </div>
 <% end %>
+
+<div class="col-md-8" style="float: right">
+  <% if @checkins.empty? %>
+    <div class="alert alert-danger" role="alert">Seja o primeiro a fazer esse checkin</div>
+  <% else %>
+    <h3>Últimos checkins:</h3>
+    <% @checkins.each do |checkin| %>
+    <ul>
+      <li><%= checkin.bar.name %></li>
+      <li><%= time_ago_in_words(checkin.created_at) %></li>
+    </ul>
+    <% end %>
+  <% end %>
+</div>
