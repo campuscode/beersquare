@@ -73,5 +73,6 @@ feature 'User search beer by name' do
     expect(page).to have_css('div', text: beer.brewery)
     expect(page).to have_css('div', text: beer.nationality)
     expect(page).to have_css('div', text: beer.description)
+    expect(current_path).to eq root_path + 'beers/kbs-2016'
   end
 end

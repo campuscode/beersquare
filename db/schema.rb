@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20180327051109) do
+ActiveRecord::Schema.define(version: 20180328005350) do
 
   create_table "bar_beers", force: :cascade do |t|
     t.integer "bar_id"
@@ -56,6 +56,7 @@ ActiveRecord::Schema.define(version: 20180327051109) do
     t.string "nationality"
     t.string "description"
     t.integer "school_beer_id"
+    t.string "slug"
     t.index ["school_beer_id"], name: "index_beers_on_school_beer_id"
   end
 
