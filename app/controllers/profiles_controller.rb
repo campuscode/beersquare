@@ -12,7 +12,8 @@ class ProfilesController < ApplicationController
   def update
     @profile = Profile.find(params[:id])
     return unless @profile.update(profile_params)
-    flash[:notice] = 'Perfil incluído com sucesso'
+    flash[:notice] = 'Perfil atualizado com sucesso'
+
     redirect_to profile_path(@profile)
   end
 
