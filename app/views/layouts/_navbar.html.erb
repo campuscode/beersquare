@@ -11,16 +11,23 @@
           <%= link_to 'Home', root_path, class: 'sr-only' %>
         </li>
         <li class="nav-item">
-          <%= link_to 'Bares', bars_path, class: 'nav-link disabled' %>
+          <%= link_to 'Bares', bars_path, class: (controller_name == 'bars')? 'nav-link active' : 'nav-link' %>
         </li>
         <li class="nav-item">
-          <%= link_to 'Cervejas', search_beers_path, class: 'nav-link disabled' %>
+          <%= link_to 'Cervejas', search_beers_path, class: (controller_name == 'beers')? 'nav-link active' : 'nav-link' %>
         </li>
       </ul>
-      <%= form_tag(search_school_beers_path, method: 'get', class: 'form-inline my-2 my-lg-0' ) do %>
-        <%= label_tag(:q, "Escola Cervejeira", class: 'nav-link disabled') %>
-        <%= select_tag(:q, options_for_select(SchoolBeer.all.map{|s| [s.name, s.id]}), {class: 'form-control mr-sm-2'}) %>
-        <%= submit_tag('Filtrar', class: 'btn btn-outline-success my-2 my-sm-0') %>
+
+      <ul class="navbar-nav mr-auto justify-content-center">
+          <%= render 'layouts/login' %>
+        </li>
+      </ul>
+      <% if controller.controller_name == 'beers' %>
+        <%= form_tag(search_school_beers_path, method: 'get', class: 'form-inline my-2 my-lg-0' ) do %>
+          <%= label_tag(:q, "Escola Cervejeira", class: 'nav-link disabled') %>
+          <%= select_tag(:q, options_for_select(SchoolBeer.all.map{|s| [s.name, s.id]}), {class: 'form-control mr-sm-2'}) %>
+          <%= submit_tag('Filtrar', class: 'btn btn-outline-success my-2 my-sm-0') %>
+        <% end %>
       <% end %>
       <%= form_tag(search_beers_path, method: 'get', class: 'form-inline my-2 my-lg-0' ) do %>
         <%= text_field_tag(:q, params[:q], {class: 'form-control mr-sm-2'}) %>

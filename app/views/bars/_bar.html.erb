@@ -1,0 +1,23 @@
+<div class="card card--dark md-5 box-shadow" style="float: left">
+  <div class="card-img-top">
+    <img src="http://www.veroverde.com.br/wp-content/uploads/2015/05/cropped-Panorama2.jpg" alt="">
+  </div>
+  <div class="card-body">
+    <h3><%= bar.name %></h3>
+  </div>
+  <div class="card-body data-list-container">
+    <ul class="list-group list-group-flush">
+      <li class="list-group-item text-light bg-dark"><%= fa_icon('map-marker') %> <%= bar.neighborhood %></li>
+      <li class="list-group-item text-light bg-dark"><%= fa_icon('location-arrow') %> <%= bar.city %></li>
+      <li class="list-group-item text-light bg-dark"><%= fa_icon('map') %> <%= bar.state %></li>
+      <li class="list-group-item text-light bg-dark"><%= fa_icon('globe') %> <%= bar.zip_code %></li>
+      <li class="list-group-item text-light bg-dark"><%= fa_icon('phone') %> <%= bar.phone %></li>
+      <li class="list-group-item text-light bg-dark"><%= fa_icon('fort-awesome') %> <%= bar.trading_hour %></li>
+      <li class="list-group-item text-light bg-dark"><%= fa_icon('money') %> <%= bar.payment %></li>
+      <li class="list-group-item text-light bg-dark"><%= fa_icon('star') %> <%= bar.rank %></li>
+      <li class="list-group-item text-light bg-dark"><%= fa_icon('spoon') %> <%= bar.services %></li>
+    </ul>
+  </div>
+</div>
+
+

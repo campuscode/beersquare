@@ -1,14 +1,199 @@
-beer = Beer.create(
-  name: 'KBS 2016',
-  brewery: 'Founders Brewing',
-  style: 'Imperial Russial Stout',
-  abv: 11.9,
-  ibu: 70,
-  nationality: 'American',
-  description: 'Descrição da cerveja maravilhosa'
-)
+school = SchoolBeer.create(name: 'Escola Alemã')
+beers = Beer.create([
+  {
+    name: 'KBS 2016',
+    brewery: 'Founders Brewing',
+    style: 'Imperial Russial Stout',
+    abv: 11.9,
+    ibu: 70,
+    nationality: 'American',
+    description: 'Descrição da cerveja maravilhosa',
+    school_beer: school
+  },
+  {
+    name: 'KBS 2016',
+    brewery: 'Founders Brewing',
+    style: 'Imperial Russial Stout',
+    abv: 11.9,
+    ibu: 70,
+    nationality: 'American',
+    description: 'Descrição da cerveja maravilhosa',
+    school_beer: school
+  },  {
+    name: 'KBS 2016',
+    brewery: 'Founders Brewing',
+    style: 'Imperial Russial Stout',
+    abv: 11.9,
+    ibu: 70,
+    nationality: 'American',
+    description: 'Descrição da cerveja maravilhosa',
+    school_beer: school
+  },  {
+    name: 'KBS 2016',
+    brewery: 'Founders Brewing',
+    style: 'Imperial Russial Stout',
+    abv: 11.9,
+    ibu: 70,
+    nationality: 'American',
+    description: 'Descrição da cerveja maravilhosa',
+    school_beer: school
+  },  {
+    name: 'KBS 2016',
+    brewery: 'Founders Brewing',
+    style: 'Imperial Russial Stout',
+    abv: 11.9,
+    ibu: 70,
+    nationality: 'American',
+    description: 'Descrição da cerveja maravilhosa',
+    school_beer: school
+  },  {
+    name: 'KBS 2016',
+    brewery: 'Founders Brewing',
+    style: 'Imperial Russial Stout',
+    abv: 11.9,
+    ibu: 70,
+    nationality: 'American',
+    description: 'Descrição da cerveja maravilhosa',
+    school_beer: school
+  },  {
+    name: 'KBS 2016',
+    brewery: 'Founders Brewing',
+    style: 'Imperial Russial Stout',
+    abv: 11.9,
+    ibu: 70,
+    nationality: 'American',
+    description: 'Descrição da cerveja maravilhosa',
+    school_beer: school
+  },  {
+    name: 'KBS 2016',
+    brewery: 'Founders Brewing',
+    style: 'Imperial Russial Stout',
+    abv: 11.9,
+    ibu: 70,
+    nationality: 'American',
+    description: 'Descrição da cerveja maravilhosa',
+    school_beer: school
+  },  {
+    name: 'KBS 2016',
+    brewery: 'Founders Brewing',
+    style: 'Imperial Russial Stout',
+    abv: 11.9,
+    ibu: 70,
+    nationality: 'American',
+    description: 'Descrição da cerveja maravilhosa',
+    school_beer: school
+  },  {
+    name: 'KBS 2016',
+    brewery: 'Founders Brewing',
+    style: 'Imperial Russial Stout',
+    abv: 11.9,
+    ibu: 70,
+    nationality: 'American',
+    description: 'Descrição da cerveja maravilhosa',
+    school_beer: school
+  },  {
+    name: 'KBS 2016',
+    brewery: 'Founders Brewing',
+    style: 'Imperial Russial Stout',
+    abv: 11.9,
+    ibu: 70,
+    nationality: 'American',
+    description: 'Descrição da cerveja maravilhosa',
+    school_beer: school
+  },  {
+    name: 'KBS 2016',
+    brewery: 'Founders Brewing',
+    style: 'Imperial Russial Stout',
+    abv: 11.9,
+    ibu: 70,
+    nationality: 'American',
+    description: 'Descrição da cerveja maravilhosa',
+    school_beer: school
+  },  {
+    name: 'KBS 2016',
+    brewery: 'Founders Brewing',
+    style: 'Imperial Russial Stout',
+    abv: 11.9,
+    ibu: 70,
+    nationality: 'American',
+    description: 'Descrição da cerveja maravilhosa',
+    school_beer: school
+  },  {
+    name: 'KBS 2016',
+    brewery: 'Founders Brewing',
+    style: 'Imperial Russial Stout',
+    abv: 11.9,
+    ibu: 70,
+    nationality: 'American',
+    description: 'Descrição da cerveja maravilhosa',
+    school_beer: school
+  },  {
+    name: 'KBS 2016',
+    brewery: 'Founders Brewing',
+    style: 'Imperial Russial Stout',
+    abv: 11.9,
+    ibu: 70,
+    nationality: 'American',
+    description: 'Descrição da cerveja maravilhosa',
+    school_beer: school
+  },  {
+    name: 'KBS 2016',
+    brewery: 'Founders Brewing',
+    style: 'Imperial Russial Stout',
+    abv: 11.9,
+    ibu: 70,
+    nationality: 'American',
+    description: 'Descrição da cerveja maravilhosa',
+    school_beer: school
+  },  {
+    name: 'KBS 2016',
+    brewery: 'Founders Brewing',
+    style: 'Imperial Russial Stout',
+    abv: 11.9,
+    ibu: 70,
+    nationality: 'American',
+    description: 'Descrição da cerveja maravilhosa',
+    school_beer: school
+  },  {
+    name: 'KBS 2016',
+    brewery: 'Founders Brewing',
+    style: 'Imperial Russial Stout',
+    abv: 11.9,
+    ibu: 70,
+    nationality: 'American',
+    description: 'Descrição da cerveja maravilhosa',
+    school_beer: school
+  },  {
+    name: 'KBS 2016',
+    brewery: 'Founders Brewing',
+    style: 'Imperial Russial Stout',
+    abv: 11.9,
+    ibu: 70,
+    nationality: 'American',
+    description: 'Descrição da cerveja maravilhosa',
+    school_beer: school
+  },  {
+    name: 'KBS 2016',
+    brewery: 'Founders Brewing',
+    style: 'Imperial Russial Stout',
+    abv: 11.9,
+    ibu: 70,
+    nationality: 'American',
+    description: 'Descrição da cerveja maravilhosa',
+    school_beer: school
+  },  {
+    name: 'KBS 2016',
+    brewery: 'Founders Brewing',
+    style: 'Imperial Russial Stout',
+    abv: 11.9,
+    ibu: 70,
+    nationality: 'American',
+    description: 'Descrição da cerveja maravilhosa',
+    school_beer: school
+  }
+])
 
-local = Bar.create(
+bar = Bar.create(
   name: 'EAP',
   phone: '(11) 3031-4328',
   address: 'R. Vupabussu, 305',
@@ -21,6 +206,8 @@ local = Bar.create(
   rank: 'Rank',
   services: 'Servimos porções e lanches'
 )
+
+beers.each{|beer| BarBeer.create(bar: bar, beer: beer)}
 
 user = User.create(
   email: 'meu@email.com',
