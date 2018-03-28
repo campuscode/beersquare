@@ -7,5 +7,6 @@ FactoryBot.define do
     ibu 70
     nationality 'American'
     description 'Descrição da cerveja maravilhosa'
+    school_beer
   end
 end

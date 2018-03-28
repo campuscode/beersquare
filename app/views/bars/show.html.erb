@@ -1,41 +1,59 @@
-<h3><%= @bar.name %></h3>
-<ul>
-  <li><%= @bar.neighborhood %></li>
-  <li><%= @bar.city %></li>
-  <li><%= @bar.state %></li>
-  <li><%= @bar.zip_code %></li>
-  <li><%= @bar.phone %></li>
-  <li><%= @bar.trading_hour %></li>
-  <li><%= @bar.payment %></li>
-  <li><%= @bar.rank %></li>
-  <li><%= @bar.services %></li>
-</ul>
-<h3> 'Cervejas:' </h3>
-<ul>
-  <% if @bar.beers.empty? %>
-    Este bar não tem cerveja disponível no momento
-    <% else %>
-      <% @bar.beers.each do |beer| %>
-        <li><%= link_to beer.name, beer_path(beer) %>
-            <%= link_to t('checkin'), bar_checkins_path(@bar, beer_id: beer.id), method: :post %></li>
-    <% end %>
-  <% end %>
-</ul>
+<div class="card card--dark md-5 box-shadow" style="float: left">
+  <div class="card-img-top">
+    <img src="http://www.veroverde.com.br/wp-content/uploads/2015/05/cropped-Panorama2.jpg" alt="">
+  </div>
+  <div class="card-body">
+    <h3><%= @bar.name %></h3>
+  </div>
+  <div class="card-body data-list-container">
+    <ul class="list-group list-group-flush">
+      <li class="list-group-item list-group-item-dark"><%= fa_icon('map-marker') %> <%= @bar.neighborhood %></li>
+      <li class="list-group-item list-group-item-dark"><%= fa_icon('location-arrow') %> <%= @bar.city %></li>
+      <li class="list-group-item list-group-item-dark"><%= fa_icon('map') %> <%= @bar.state %></li>
+      <li class="list-group-item list-group-item-dark"><%= fa_icon('globe') %> <%= @bar.zip_code %></li>
+      <li class="list-group-item list-group-item-dark"><%= fa_icon('phone') %> <%= @bar.phone %></li>
+      <li class="list-group-item list-group-item-dark"><%= fa_icon('fort-awesome') %> <%= @bar.trading_hour %></li>
+      <li class="list-group-item list-group-item-dark"><%= fa_icon('money') %> <%= @bar.payment %></li>
+      <li class="list-group-item list-group-item-dark"><%= fa_icon('star') %> <%= @bar.rank %></li>
+      <li class="list-group-item list-group-item-dark"><%= fa_icon('spoon') %> <%= @bar.services %></li>
+    </ul>
+  </div>
+</div>
 
-<div class="card col-md-2">
+<div class="card card--dark md-3 box-shadow" style="float: left; margin-left: 50px; margin-top: 15em">
+  <div class="card-body">
+    <h3>Cervejas Disponíveis</h3>
+    <% if @bar.beers.empty? %>
+      <%= 'Este bar não tem cerveja disponível no momento' %>
+    <% else %>
+      <div class="card-body data-list-container">
+        <ul class="list-group list-group-flush">
+          <% @bar.beers.each do |beer| %>
+            <li class="list-group-item list-group-item-dark">
+              <%= link_to beer.name, beer_path(beer) %>
+              <%= link_to fa_icon('check-square'), bar_checkins_path(@bar, beer_id: beer.id), method: :post, class: 'check_link' %>
+            </li>
+          <% end %>
+        </ul>
+      </div>
+    <% end %>
+  </div>
+</div>
+
+<div class="card card--dark md-2" style="float: right; margin-top: 15em">
   <div class="card-body">
     <h5 class="card-title">Últimos Checkins</h5>
     <% if @checkins.empty? %>
       Este bar ainda não recebeu nenhum checkin =(
     <% else %>
+      <div class="card-body data-list-container">
       <ul class="list-group list-group-flush">
-      <%= @checkins.each do |checkin| %>
-        <li class="list-group-item checkin">
-          <%= checkin.beer.name %><%= time_ago_in_words(checkin.created_at) %>
-          <div class="checkins_counter"><%= checkin.beer %></div>
+      <% @checkins.each do |checkin| %>
+        <li class="list-group-item checkin check_<%= checkin.created_at.to_i%> list-group-item-dark">
+          <%= checkin.beer.name %> <small><i>há <%= time_ago_in_words(checkin.created_at) %></i></small>
         </li>
       <% end %>
+      </ul>
     <% end %>
-    </ul>
   </div>
 </div>

@@ -2,11 +2,13 @@ require 'rails_helper'
 
 feature 'user choose bar' do
   scenario 'successfully' do
+    school = SchoolBeer.create(name: 'Escola Alemã')
     cerveja1 = Beer.create(
       name: 'Erdinger Weissbier',
       style: 'Weiss',
       abv: '5,3%',
-      ibu: '13'
+      ibu: '13',
+      school_beer: school
     )
     Beer.create(name: 'Urbana Boo', style: 'Wheat Ale', abv: '4,9', ibu: '20')
 
@@ -39,7 +41,7 @@ feature 'user choose bar' do
     )
     expect(page).to have_css('li', text: '5.0')
     expect(page).to have_css('li', text: 'cozinha, valet, música ao vivo')
-    expect(page).to have_content('Cervejas: ')
+    expect(page).to have_content('Cervejas')
     expect(page).to have_css('li', text: 'Erdinger Weissbier')
     expect(page).not_to have_css('li', text: 'Urbana Boo')
   end
@@ -62,7 +64,7 @@ feature 'user choose bar' do
 
     visit bar_path(bar)
 
-    expect(page).to have_content('Cervejas: ')
+    expect(page).to have_content('Cervejas')
     expect(page).to_not have_css('li', text: 'Urbana Boo')
     expect(page).to have_content(
       'Este bar não tem cerveja disponível no momento'
@@ -83,6 +85,7 @@ feature 'user choose bar' do
       services: 'cozinha, valet, música ao vivo'
     )
 
+    school = SchoolBeer.create(name: 'Escola Alemã')
     beer = Beer.create(
       name: 'Erdinger',
       style: 'Wheiss',
@@ -90,7 +93,8 @@ feature 'user choose bar' do
       abv: 1.1,
       ibu: 2.2,
       nationality: 'Alemanha',
-      description: 'Cerveja de trigo deliciosamente refrescante'
+      description: 'Cerveja de trigo deliciosamente refrescante',
+      school_beer: school
     )
 
     beer1 = Beer.create(
@@ -100,7 +104,8 @@ feature 'user choose bar' do
       abv: 2.2,
       ibu: 1.1,
       nationality: 'Brasileira',
-      description: 'Cerveja de trigo encorpada, com notas de cravo e banana'
+      description: 'Cerveja de trigo encorpada, com notas de cravo e banana',
+      school_beer: school
     )
 
     BarBeer.create(bar: bar, beer: beer)
@@ -108,7 +113,7 @@ feature 'user choose bar' do
 
     visit bar_path(bar)
 
-    expect(page).to have_content('Cervejas:')
+    expect(page).to have_content('Cervejas')
     expect(page).to have_css('li', text: beer.name)
     expect(page).to have_css('li', text: beer1.name)
   end

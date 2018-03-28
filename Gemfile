@@ -7,6 +7,9 @@ end
 
 gem 'bootstrap', '~> 4.0.0'
 gem 'coffee-rails', '~> 4.2'
+gem 'devise', '~> 4.4', '>= 4.4.3'
+gem 'font-awesome-rails'
+gem 'friendly_id', '~> 5.2', '>= 5.2.3'
 gem 'jbuilder', '~> 2.5'
 gem 'jquery-rails'
 gem 'puma', '~> 3.7'

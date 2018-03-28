@@ -1,0 +1,45 @@
+.card {
+  @extend %box-shadow;
+  border: 0;
+  max-width: 400px;
+
+  &-img-top {
+    height: 15em;
+    width: 100%;
+    background-color: $gray;
+    overflow: hidden;
+
+    img {
+      width: 100%;
+    }
+  }
+
+  .data-list {
+    padding: 0;
+    line-height: 1.8em;
+    margin-bottom: 0;
+
+    &-container {
+      background-color: $gray;
+    }
+
+    &__item {
+      list-style: none;
+      display: inline-block;
+      margin-right: .5em;
+    }
+  }
+
+  &--dark {
+    background-color: $dark;
+    color: $white;
+
+    .card__body {
+      color: $white;
+    }
+
+    .data-list-container {
+      background-color: darken($dark, 5);
+    }
+  }
+}
