@@ -1,19 +1,18 @@
 <% if @beers.empty? %>
-  <div class='alert alert-warning' role='alert'>
-    <%= flash[:notice] = 'Cerveja não encontrada' %>
-  </div>
+  <div class='alert alert-warning' role='alert'>Cerveja não encontrada</div>
 <% else %>
   <% @beers.each do |beer| %>
-    <div class="card" style="width: 18rem;">
+    <div class="card card--dark md-5 box-shadow" style="margin-top: 25px">
       <div class="card-header">
         <%= link_to beer.name, beer_path(beer)%>
       </div>
-      <ul class="list-group list-group-flush">
-        <li class="list-group-item">Estilo: <%= beer.style %></li>
-        <li class="list-group-item">ABV: <%= beer.abv %>%</li>
-        <li class="list-group-item">IBU: <%= beer.ibu %></li>
-      </ul>
+      <div class="card-body data-list-container">
+        <ul class="list-group list-group-flush">
+          <li class="list-group-item text-light bg-dark">Estilo: <%= beer.style %></li>
+          <li class="list-group-item text-light bg-dark">ABV: <%= beer.abv %>%</li>
+          <li class="list-group-item text-light bg-dark">IBU: <%= beer.ibu %></li>
+        </ul>
+      </div>
     </div>
-    <br>
   <% end %>
 <% end %>

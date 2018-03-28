@@ -1,0 +1,7 @@
+<% if @bars.empty? %>
+  <div class="alert alert-danger" role="alert">Não existem bares cadastrados até o momento</div>
+<% else %>
+  <% @bars.each do |bar| %>
+    <%= render partial: "shared/bar", locals: {bar: bar} %>
+  <% end %>
+<% end %>
