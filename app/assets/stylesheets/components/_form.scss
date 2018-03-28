@@ -1,0 +1,41 @@
+.form {
+  &-inline {
+    & + & {
+      margin-left: 1em;
+
+      @include max(580px) {
+        margin-left: 0;
+      }
+    }
+
+    .navbar-nav + & {
+      .nav-link {
+        padding-left: 0;
+      }
+    }
+
+    @include max(1024px) {
+      display: inline-block;
+      width: auto;
+      padding-bottom: 1em;
+
+      &[action="/beers/search"] {
+        padding-top: 40px;
+      }
+
+      .nav-link {
+        display: block;
+        width: 100%;
+      }
+    }
+
+    @include max(580px) {
+      display: block;
+      width: 100%;
+
+      &[action="/beers/search"] {
+        padding-top: 0;
+      }
+    }
+  }
+}
