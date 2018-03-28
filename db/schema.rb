@@ -56,6 +56,7 @@ ActiveRecord::Schema.define(version: 20180328010058) do
     t.string "nationality"
     t.string "description"
     t.integer "school_beer_id"
+    t.string "slug"
     t.index ["school_beer_id"], name: "index_beers_on_school_beer_id"
   end
 
