@@ -1,0 +1,14 @@
+<h1>Meu perfil</h1>
+<% flash.each do |name, msg| %>
+  <%= content_tag :div, msg, class: name %>
+<% end %>
+
+<div class=''>
+  <%= @profile.name %>
+</div>
+
+<div class=''>
+  <%= @profile.birth_date %>
+</div>
+
+<%= link_to 'Editar', edit_profile_path(@profile) %>

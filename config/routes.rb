@@ -14,4 +14,6 @@ Rails.application.routes.draw do
   resources :bars, only:[:index, :show] do
     resources :checkins, only: [:create]
   end
+
+  resources :profiles, only:[:show, :update, :edit]
 end

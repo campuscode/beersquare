@@ -1,0 +1,13 @@
+<%= form_for @profile do |p| %>
+  <div>
+    <%= p.label :name, 'Nome' %>
+    <%= p.text_field :name %>
+  </div>
+  <div>
+    <%= p.label :birth_date, 'Data de nascimento' %>
+    <%= p.text_field :birth_date, placeholder: 'dd/mm/aaaa' %>
+  </div>
+  <div>
+    <%= p.submit 'Salvar' %>
+  </div>
+<% end %>
