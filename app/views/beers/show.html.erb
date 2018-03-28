@@ -1,4 +1,4 @@
-<div class="md-5 position-fixed">
+<div class="md-3 position-fixed">
   <div class="card card--dark md-5 box-shadow">
     <div class="card-img-top">
       <img src="..." alt="Card image cap">
@@ -31,16 +31,22 @@
   </div>
 <% end %>
 
-<div class="col-md-8" style="float: right">
-  <% if @checkins.empty? %>
-    <div class="alert alert-danger" role="alert">Seja o primeiro a fazer esse checkin</div>
-  <% else %>
-    <h3>Últimos checkins:</h3>
-    <% @checkins.each do |checkin| %>
-    <ul>
-      <li><%= checkin.bar.name %></li>
-      <li><%= time_ago_in_words(checkin.created_at) %></li>
-    </ul>
+
+<div class="card card--dark md-2" style="float: right; margin-top: 15em; margin-left: 50px">
+  <div class="card-body">
+    <h5 class="card-title">Últimos Checkins</h5>
+  </div>
+  <div class="card-body data-list-container">
+    <% if @checkins.empty? %>
+      <div class="alert alert-danger" role="alert">Seja o primeiro a fazer esse checkin</div>
+    <% else %>
+      <ul class="list-group list-group-flush">
+        <% @checkins.each do |checkin| %>
+          <li class="list-group-item checkin check_<%= checkin.created_at.to_i%> text-light bg-dark">
+            <%= checkin.bar.name %> <small><i>há <%= time_ago_in_words(checkin.created_at) %></i></small>
+          </li>
+        <% end %>
+      </ul>
     <% end %>
-  <% end %>
+  </div>
 </div>

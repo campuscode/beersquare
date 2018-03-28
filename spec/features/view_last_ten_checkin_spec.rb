@@ -36,7 +36,7 @@ feature 'user visit home' do
 
     visit beer_path(beer)
 
-    expect(page).to have_content(' Últimos checkins: ')
+    expect(page).to have_content('Últimos Checkins')
     expect(page).to have_css('li', text: bar0.name.to_s)
     expect(page).to have_css('li', text: 'menos de um minuto')
     expect(page).to have_css('li', text: bar1.name.to_s)
