@@ -1,7 +1,8 @@
 <div>
   <% if user_signed_in? %>
     <p>
-      <%= "Olá #{current_user.email}" %> |
+      <%= "Olá #{current_user.email}" %>
+      <%= link_to 'Meu perfil', profile_path(current_user.id) %>
       <%= link_to('Logout', destroy_user_session_path, method: :delete) %>
     </p>
   <% else %>

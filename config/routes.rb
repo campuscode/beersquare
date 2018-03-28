@@ -12,4 +12,6 @@ Rails.application.routes.draw do
   end
 
   resources :bars, only:[:show]
+
+  resources :profiles, only:[:show, :update, :edit]
 end
