@@ -9,7 +9,8 @@
     <div class="card-body">
       <div class="list-group list-group-flush">
         <ul class="list-group list-group-flush">
-          <li class="list-group-item text-light bg-dark"><h4>Estilo: <%= @beer.style %></h4></p>
+          <li class="list-group-item text-light bg-dark"><h4>Estilo: <%= @beer.beer_style.school_beer.name %></h4></p>
+          <li class="list-group-item text-light bg-dark"><h4>Estilo: <%= @beer.beer_style.name %></h4></p>
           <li class="list-group-item text-light bg-dark">Cervejaria: <%= @beer.brewery %></li>
           <li class="list-group-item text-light bg-dark">ABV: <%= @beer.abv %>%</li>
           <li class="list-group-item text-light bg-dark">IBU: <%= @beer.ibu %></li>

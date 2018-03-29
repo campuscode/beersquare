@@ -2,15 +2,11 @@ require 'rails_helper'
 
 feature 'User search beer by name' do
   scenario 'successfully' do
-    school = SchoolBeer.create(name: 'Escola Alemã')
-    Beer.create(
-      name: 'KBS 2016', style: 'Imperial Russial Stout', abv: 11.9, ibu: 70,
-      school_beer: school
-    )
-    Beer.create(
-      name: 'KBS 2018', style: 'Imperial Russial Stout', abv: 11.9, ibu: 70,
-      school_beer: school
-    )
+    school = SchoolBeer.create(name: 'Escola Americana')
+    style = create(:beer_style, name: 'Imperial Russial Stout',
+                                school_beer: school)
+    Beer.create(name: 'KBS 2016', beer_style: style, abv: 11.9, ibu: 70)
+    Beer.create(name: 'KBS 2018', beer_style: style, abv: 11.9, ibu: 70)
 
     visit root_path
     fill_in 'q', with: 'KBS 2016'
@@ -24,8 +20,11 @@ feature 'User search beer by name' do
   end
 
   scenario 'and find more than one beers' do
-    beer1 = create(:beer, name: 'KBS 2016')
-    beer2 = create(:beer, name: 'KBS 2018')
+    school = SchoolBeer.create(name: 'Escola Americana')
+    style = create(:beer_style, name: 'Imperial Russial Stout',
+                                school_beer: school)
+    beer1 = create(:beer, name: 'KBS 2016', beer_style: style)
+    beer2 = create(:beer, name: 'KBS 2018', beer_style: style)
 
     visit root_path
     fill_in 'q', with: 'KBS'
@@ -50,8 +49,9 @@ feature 'User search beer by name' do
 
   scenario 'user view beer details' do
     create(:bar)
-    school = create(:school_beer, name: 'Escola Americana')
-    beer = create(:beer, school_beer: school)
+    school = create(:school_beer)
+    style = create(:beer_style, school_beer: school)
+    beer = create(:beer, beer_style: style)
 
     visit root_path
     fill_in 'q', with: 'KBS 2016'
@@ -59,7 +59,8 @@ feature 'User search beer by name' do
     click_on 'KBS 2016'
 
     expect(page).to have_css('h3.card-title', text: beer.name)
-    expect(page).to have_css('h4', text: beer.style)
+    expect(page).to have_css('h4', text: school.name)
+    expect(page).to have_css('h4', text: beer.beer_style.name)
     expect(page).to have_css('li', text: beer.abv)
     expect(page).to have_css('li', text: beer.ibu)
     expect(page).to have_css('li', text: beer.brewery)

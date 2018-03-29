@@ -3,116 +3,116 @@ belgian_school = SchoolBeer.create(name: 'Escola Belga')
 english_school = SchoolBeer.create(name: 'Escola Inglesa')
 american_school = SchoolBeer.create(name: 'Escola Americana')
 
+style_ris = BeerStyle.create(name: 'RIS - Russian Imperial Stout', school_beer: american_school)
+style_red = BeerStyle.create(name: 'Imperial Red IPA', school_beer: american_school)
+style_mystery = BeerStyle.create(name: 'Mystery Ale - Charmat', school_beer: american_school)
+style_neipa = BeerStyle.create(name: 'New England IPA', school_beer: american_school)
+style_quad = BeerStyle.create(name: 'Belgian Quadrupel', school_beer: belgian_school)
+style_gueuze = BeerStyle.create(name: 'Gueuze Lambic', school_beer: belgian_school)
+style_oatmeal = BeerStyle.create(name: 'Stout Oatmeal', school_beer: english_school)
+style_strong = BeerStyle.create(name: 'Strong Ale', school_beer: english_school)
+style_munich = BeerStyle.create(name: 'Munich Dunkel', school_beer: german_school)
+style_kristall = BeerStyle.create(name: 'Kristal Weizen', school_beer: german_school)
+
 beers = Beer.create([
   {
     name: 'KBS 2016',
     brewery: 'Founders Brewing',
-    style: 'RIS - Russian Imperial Stout',
+    beer_style: style_ris,
     abv: 11.9,
     ibu: 70,
-    nationality: 'American',
-    description: 'Cerveja envelhecida em barris de carvalho',
-    school_beer: american_school
+    nationality: 'Americana',
+    description: 'Cerveja envelhecida em barris de carvalho'
   },
   {
     name: 'KBS 2018',
     brewery: 'Founders Brewing',
-    style: 'Imperial Russial Stout',
+    beer_style: style_ris,
     abv: 11.9,
     ibu: 70,
     nationality: 'Americana',
-    description: 'Cerveja envelhecida em barris de carvalho',
-    school_beer: american_school
+    description: 'Cerveja envelhecida em barris de carvalho'
   },
   {
     name: 'G Knight',
     brewery: 'Oskar Blues Brewery',
-    style: 'Imperial Red IPA',
+    beer_style: style_red,
     abv: 8.7,
     ibu: 60,
     nationality: 'Americana',
-    description: 'Uma Red IPA em homenagem ao primeiro fabricante de cerveja artesanal da California',
-    school_beer: american_school
+    description: 'Uma Red IPA em homenagem ao primeiro fabricante de cerveja artesanal da California'
   },
   {
     name: 'Belhaven Scottish Oat Stout',
     brewery: 'Belheaven Brewery',
-    style: 'Stout Oatmeal',
+    beer_style: style_oatmeal,
     abv: 7,
     ibu: 32,
     nationality: 'Escocesa',
-    description: 'É uma cerveja escura, forte e corpo médio, com notas de café e um dulçor equilibrado',
-    school_beer: english_school
+    description: 'É uma cerveja escura, forte e corpo médio, com notas de café e um dulçor equilibrado'
   },
   {
     name: 'St. Bernardus Abt 12',
     brewery: 'St. Bernardus Brewery',
-    style: 'Belgian Quadrupel',
+    beer_style: style_quad,
     abv: 10.0,
     ibu: 22,
     nationality: 'Belga',
-    description: 'Uma cerveja bem marcante, encorpada, saborosa, complexa e é uma ótima escolha para uma boa comemoração',
-    school_beer: belgian_school
+    description: 'Uma cerveja bem marcante, encorpada, saborosa, complexa e é uma ótima escolha para uma boa comemoração'
   },
   {
     name: 'Hofbräu Dunkel,',
     brewery: 'Hofbräu',
-    style: 'Munich Dunkel',
+    beer_style: style_munich,
     abv: 5.5,
     ibu: 22,
     nationality: 'Alemã',
-    description: 'É uma cerveja escura, destaque para o dulçor e amargor de baixa intensidade, leve e refrescante.',
-    school_beer: german_school
+    description: 'É uma cerveja escura, destaque para o dulçor e amargor de baixa intensidade, leve e refrescante.'
   },
   {
     name: 'Belle-Vue Gueuze',
     brewery: 'Belle-Vue Brewery',
-    style: 'Gueuze Lambic',
+    beer_style: style_gueuze,
     abv: 5.5,
     ibu: 5,
     nationality: 'Belga',
-    description: 'Ela é muito complexa, tanto em sabores quanto nos aromas bem diversificados',
-    school_beer: belgian_school
+    description: 'Ela é muito complexa, tanto em sabores quanto nos aromas bem diversificados'
   },
   {
     name: 'Roleta Russa New England IPA',
     brewery: 'Cervejaria Campo Bom',
-    style: 'New England IPA',
+    beer_style: style_neipa,
     abv: 6.5,
     ibu: 64,
     nationality: 'Brasileira',
-    description: 'Mais aromática que saborosa, mas tem aquela pegada das NEIPA. Maracujá e refrescância são os destaques',
-    school_beer: american_school
+    description: 'Mais aromática que saborosa, mas tem aquela pegada das NEIPA. Maracujá e refrescância são os destaques'
   },
   {
     name: 'Fuller`s 1845',
     brewery: 'Fuller`s',
-    style: 'Strong Ale',
+    beer_style: style_strong,
     abv: 6.3,
     ibu: 52,
     nationality: 'Inglesa',
-    description: 'Equilibrio entre amargor e dulçor, leve e persistente',
-    school_beer: english_school
+    description: 'Equilibrio entre amargor e dulçor, leve e persistente'
   },
   {
     name: 'Weihenstephan Kristall Weissbier',
     brewery: 'Bayerische Staatsbrauerei Weihenstephan',
-    style: 'Kristall Weizen',
+    beer_style: style_kristall,
     abv: 5.4,
     ibu: 16,
     nationality: 'Alemã',
-    description: 'Cervejaria mais antiga do mundo, cerveja de trigo, leve, refrescante para tomar litros',
-    school_beer: german_school
+    description: 'Cervejaria mais antiga do mundo, cerveja de trigo, leve, refrescante para tomar litros'
   },
   {
     name: 'Wäls',
     brewery: 'Wäls Evita',
-    style: 'Mystery Ale - Charmat',
+    beer_style: style_mystery,
     abv: 8.0,
     ibu: 9,
     nationality: 'Brasileira',
-    description: 'Um cerveja completamente diferente, extremamente complexa tanto em aromas quanto em sabores',
-    school_beer: american_school
+    description: 'Um cerveja completamente diferente, extremamente complexa tanto em aromas quanto em sabores'
   }
 ])
 
