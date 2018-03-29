@@ -16,7 +16,7 @@ class CheckinsController < ApplicationController
 
   def edit
     @checkin = Checkin.find(params[:id])
-    @user_name = @checkin.full_description
+    @full_description = @checkin.full_description
   end
 
   def update

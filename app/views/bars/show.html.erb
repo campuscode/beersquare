@@ -20,7 +20,7 @@
             <% @bar.beers.each do |beer| %>
               <li class="list-group-item text-light bg-dark">
                 <%= link_to beer.name, beer_path(beer) %>
-                <%= link_to fa_icon('check-square'), bar_checkins_path(@bar, beer_id: beer.id), method: :post, class: 'check_link' %>
+                  <%= link_to fa_icon('check-square'), bar_checkins_path(@bar, beer_id: beer.id), method: :post, class: 'check_link' if current_user %>
               </li>
             <% end %>
           </ul>

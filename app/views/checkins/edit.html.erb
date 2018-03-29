@@ -1,6 +1,6 @@
 <h3>Fazer Checkin</h3>
 <ul>
-  <li><%= "#{@user_name} degustou a #{@checkin.beer.name} no #{@checkin.bar.name} em #{@checkin.created_at}" %></li>
+  <li><%= @full_description %></li>
 </ul>
 <%= form_for [@checkin.bar, @checkin] do |f| %>
   <%= f.label :description, 'Comentário' %>
