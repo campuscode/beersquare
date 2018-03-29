@@ -1,6 +1,6 @@
 FactoryBot.define do
   factory :beer_style do
-    name 'Weiss'
+    name 'RIS - Russian Imperial Stout'
     school_beer
   end
 end

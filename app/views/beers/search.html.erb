@@ -4,13 +4,14 @@
   <% @beers.each do |beer| %>
     <div class="card card--dark md-5 box-shadow" style="margin-top: 25px">
       <div class="card-header">
-        <%= link_to beer.name, beer_path(beer)%>
+        <%= link_to beer.name, beer_path(beer) %>
       </div>
       <div class="card-body data-list-container">
         <ul class="list-group list-group-flush">
-          <li class="list-group-item text-light bg-dark">Estilo: <%= beer.style %></li>
+          <li class="list-group-item text-light bg-dark">Estilo: <%= beer.beer_style.name %></li>
           <li class="list-group-item text-light bg-dark">ABV: <%= beer.abv %>%</li>
           <li class="list-group-item text-light bg-dark">IBU: <%= beer.ibu %></li>
+          <li class="list-group-item text-light bg-dark"><%= beer.beer_style.school_beer.name %></li>
         </ul>
       </div>
     </div>

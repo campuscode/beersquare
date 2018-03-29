@@ -2,15 +2,21 @@ require 'rails_helper'
 
 feature 'user choose bar' do
   scenario 'successfully' do
-    school = SchoolBeer.create(name: 'Escola Alemã')
-    cerveja1 = Beer.create(
+    school = create(:school_beer, name: 'Escola Alemã')
+    style_weiss = create(:beer_style, name: 'Weiss', school_beer: school)
+    style_wheat = create(:beer_style, name: 'Wheat Ale', school_beer: school)
+    beer = Beer.create(
       name: 'Erdinger Weissbier',
-      style: 'Weiss',
       abv: '5,3%',
       ibu: '13',
-      school_beer: school
+      beer_style: style_weiss
     )
-    Beer.create(name: 'Urbana Boo', style: 'Wheat Ale', abv: '4,9', ibu: '20')
+    Beer.create(
+      name: 'Urbana Boo',
+      beer_style: style_wheat,
+      abv: '4,9',
+      ibu: '20'
+    )
 
     bar = Bar.create(
       name: 'CampusCode Pub',
@@ -25,7 +31,7 @@ feature 'user choose bar' do
       services: 'cozinha, valet, música ao vivo'
     )
 
-    BarBeer.create(bar: bar, beer: cerveja1)
+    BarBeer.create(bar: bar, beer: beer)
 
     visit bar_path(bar)
 
@@ -60,7 +66,21 @@ feature 'user choose bar' do
       services: 'cozinha, valet, música ao vivo'
     )
 
-    Beer.create(name: 'Urbana Boo', style: 'Wheat Ale', abv: '4,9', ibu: '20')
+    school = create(:school_beer, name: 'Escola Alemã')
+    style_weiss = create(:beer_style, name: 'Weiss', school_beer: school)
+    style_wheat = create(:beer_style, school_beer: school)
+    Beer.create(
+      name: 'Erdinger Weissbier',
+      abv: '5,3%',
+      ibu: '13',
+      beer_style: style_weiss
+    )
+    Beer.create(
+      name: 'Urbana Boo',
+      beer_style: style_wheat,
+      abv: '4,9',
+      ibu: '20'
+    )
 
     visit bar_path(bar)
 
@@ -84,30 +104,27 @@ feature 'user choose bar' do
       rank: '5.0',
       services: 'cozinha, valet, música ao vivo'
     )
-
-    school = SchoolBeer.create(name: 'Escola Alemã')
+    school = create(:school_beer, name: 'Escola Alemã')
+    style_weiss = create(:beer_style, name: 'Weiss', school_beer: school)
+    style_wheat = create(:beer_style, school_beer: school)
     beer = Beer.create(
       name: 'Erdinger',
-      style: 'Wheiss',
+      beer_style: style_weiss,
       brewery: 'Cervejaria alemã',
       abv: 1.1,
       ibu: 2.2,
       nationality: 'Alemanha',
-      description: 'Cerveja de trigo deliciosamente refrescante',
-      school_beer: school
+      description: 'Cerveja de trigo deliciosamente refrescante'
     )
-
     beer1 = Beer.create(
       name: 'Matta',
-      style: 'Wheiss',
+      beer_style: style_wheat,
       brewery: 'Da Matta',
       abv: 2.2,
       ibu: 1.1,
       nationality: 'Brasileira',
-      description: 'Cerveja de trigo encorpada, com notas de cravo e banana',
-      school_beer: school
+      description: 'Cerveja de trigo encorpada, com notas de cravo e banana'
     )
-
     BarBeer.create(bar: bar, beer: beer)
     BarBeer.create(bar: bar, beer: beer1)
 
