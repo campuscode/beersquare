@@ -12,7 +12,7 @@ Rails.application.routes.draw do
   end
 
   resources :bars, only:[:index, :show] do
-    resources :checkins, only: [:create]
+    resources :checkins, only: [:create, :edit, :update]
   end
 
   resources :profiles, only:[:show, :update, :edit]

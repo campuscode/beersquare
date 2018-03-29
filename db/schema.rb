@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20180328010058) do
+ActiveRecord::Schema.define(version: 20180328214836) do
 
   create_table "bar_beers", force: :cascade do |t|
     t.integer "bar_id"
@@ -65,8 +65,12 @@ ActiveRecord::Schema.define(version: 20180328010058) do
     t.integer "beer_id"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
+    t.integer "user_id"
+    t.text "description"
+    t.boolean "completed"
     t.index ["bar_id"], name: "index_checkins_on_bar_id"
     t.index ["beer_id"], name: "index_checkins_on_beer_id"
+    t.index ["user_id"], name: "index_checkins_on_user_id"
   end
 
   create_table "friendly_id_slugs", force: :cascade do |t|
