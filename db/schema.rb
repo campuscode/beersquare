@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20180328010058) do
+ActiveRecord::Schema.define(version: 20180329012502) do
 
   create_table "bar_beers", force: :cascade do |t|
     t.integer "bar_id"
@@ -47,7 +47,6 @@ ActiveRecord::Schema.define(version: 20180328010058) do
 
   create_table "beers", force: :cascade do |t|
     t.string "name"
-    t.string "style"
     t.float "abv"
     t.integer "ibu"
     t.datetime "created_at", null: false
@@ -55,9 +54,9 @@ ActiveRecord::Schema.define(version: 20180328010058) do
     t.string "brewery"
     t.string "nationality"
     t.string "description"
-    t.integer "school_beer_id"
     t.string "slug"
-    t.index ["school_beer_id"], name: "index_beers_on_school_beer_id"
+    t.integer "beer_style_id"
+    t.index ["beer_style_id"], name: "index_beers_on_beer_style_id"
   end
 
   create_table "checkins", force: :cascade do |t|
