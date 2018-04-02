@@ -1,27 +1,10 @@
+<% flash.each do |name, msg| %>
+  <%= content_tag :div, msg, class: name %>
+<% end %>
+
 <div class="row">
   <div class="col-md-4">
     <%= render partial: "shared/bar", locals: {bar: @bar} %>
-  </div>
-
-  <div class="col-md-4">
-    <div class="card card--dark box-shadow">
-      <div class="card-body">
-        <h5 class="card-title">Últimos Checkins</h5>
-      </div>
-      <div class="card-body data-list-container">
-        <% if @checkins.empty? %>
-          <div class="alert alert-danger" role="alert">Este bar ainda não recebeu nenhum checkin =(</div>
-        <% else %>
-          <ul class="list-group list-group-flush">
-            <% @checkins.each do |checkin| %>
-              <li class="list-group-item checkin check_<%= checkin.created_at.to_i%> text-light bg-dark">
-                <%= checkin.beer.name %> <small><i>há <%= time_ago_in_words(checkin.created_at) %></i></small>
-              </li>
-            <% end %>
-          </ul>
-        <% end %>
-      </div>
-    </div>
   </div>
 
   <div class="col-md-4">
@@ -37,7 +20,28 @@
             <% @bar.beers.each do |beer| %>
               <li class="list-group-item text-light bg-dark">
                 <%= link_to beer.name, beer_path(beer) %>
-                <%= link_to fa_icon('check-square'), bar_checkins_path(@bar, beer_id: beer.id), method: :post, class: 'check_link' %>
+                  <%= link_to fa_icon('check-square'), bar_checkins_path(@bar, beer_id: beer.id), method: :post, class: 'check_link' if current_user %>
+              </li>
+            <% end %>
+          </ul>
+        <% end %>
+      </div>
+    </div>
+  </div>
+
+  <div class="col-md-4">
+    <div class="card card--dark box-shadow">
+      <div class="card-body">
+        <h5 class="card-title">Últimos Checkins</h5>
+      </div>
+      <div class="card-body data-list-container">
+        <% if @checkins.empty? %>
+          <div class="alert alert-danger" role="alert">Este bar ainda não recebeu nenhum checkin =(</div>
+        <% else %>
+          <ul class="list-group list-group-flush">
+            <% @checkins.each do |checkin| %>
+              <li class="list-group-item checkin check_<%= checkin.created_at.to_i%> text-light bg-dark">
+                <%= checkin.beer.name %> <small><i>há <%= time_ago_in_words(checkin.created_at) %></i></small>
               </li>
             <% end %>
           </ul>

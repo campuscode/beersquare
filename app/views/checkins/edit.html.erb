@@ -1,0 +1,19 @@
+<div class="row">
+  <div class="card card--dark box-shadow mx-auto" style="max-width: 900px; important!">
+    <div class="card-body md-8">
+      <h3>Fazer Checkin</h3>
+    </div>
+    <div class="card-body data-list-container md-8">
+      <ul class="list-group list-group-flush">
+        <li class="list-group-item text-light bg-dark"><%= @full_description %></li>
+        <li class="list-group-item text-light bg-dark">
+          <%= form_for [@checkin.bar, @checkin] do |f| %>
+            <div class="col-md-12"><%= f.label :description, 'Comentário' %></div>
+            <div class="col-md-12"><%= f.text_area :description, size: '50x5' %></div>
+            <div class="col-md-12"><%= f.submit 'Check-in', class: 'btn btn-primary' %></div>
+          <% end %>
+        </li>
+      </ul>
+    </div>
+  </div>
+</div>

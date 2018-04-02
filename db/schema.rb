@@ -64,8 +64,12 @@ ActiveRecord::Schema.define(version: 20180329012502) do
     t.integer "beer_id"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
+    t.integer "user_id"
+    t.text "description"
+    t.boolean "completed"
     t.index ["bar_id"], name: "index_checkins_on_bar_id"
     t.index ["beer_id"], name: "index_checkins_on_beer_id"
+    t.index ["user_id"], name: "index_checkins_on_user_id"
   end
 
   create_table "friendly_id_slugs", force: :cascade do |t|
